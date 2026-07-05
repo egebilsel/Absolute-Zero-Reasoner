@@ -16,6 +16,8 @@ Note that we don't combine the main with ray_trainer as ray_trainer is used by o
 """
 import ray
 import hydra
+import torch
+torch.set_default_dtype(torch.bfloat16)
 from pathlib import Path
 from pprint import pprint
 
