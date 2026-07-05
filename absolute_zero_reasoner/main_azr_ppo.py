@@ -16,8 +16,6 @@ Note that we don't combine the main with ray_trainer as ray_trainer is used by o
 """
 import ray
 import hydra
-import torch
-torch.set_default_dtype(torch.bfloat16)
 from pathlib import Path
 from pprint import pprint
 
@@ -32,6 +30,8 @@ from absolute_zero_reasoner.rewards.reward_managers import CodeIORewardManager
 
 @hydra.main(config_path='configs', config_name='azr_ppo_trainer', version_base=None)
 def main(config):
+    import torch
+    torch.set_default_dtype(torch.bfloat16)
     run_ppo(config)
 
 
